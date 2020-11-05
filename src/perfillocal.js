@@ -1,0 +1,29 @@
+import React from 'react';
+import axios from "axios";
+import './App.css'; 
+import { Button, Input } from 'reactstrap';
+
+function cal(){
+    return(
+        <div className ="contenedorgigante">
+             <div className="header"></div>
+             <div className="lacuartacaja">
+                 <div className="n">Local:</div>
+                 <Input className="tb1"></Input>
+                 <div className="n2">Direccion:</div>
+                 <Input className="tb2"></Input>
+                 <div className="n3">Email:</div>
+                 <Input className="tb3"></Input>
+                 <div className="n4">Telefono:</div>
+                 <Input className="tb4"></Input>
+                 <div className="n5">Contraseña:</div>
+                 <Input className="tb5"></Input>
+                 <div className="textolargo">Actualiza tus datos del negocio.
+Configura tu negocio, local, direccion, email, telefono y contraseña. Proporciona informacion a los clientes para que identifiquen con mayor facilidad. Nunca proporciones la contraseña de tu cuenta de TuFast a otro individuo que pregunte por ella.</div>
+               
+                 </div>
+        </div>
+
+    )
+}
+export default cal
