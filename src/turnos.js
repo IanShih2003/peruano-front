@@ -1,21 +1,21 @@
 import React from "react";
-import "./App.css";
-import {
-  NavLink,
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from "react-router-dom";
+import "./css/App.css";
+// import {
+//   NavLink,
+//   BrowserRouter as Router,
+//   Route,
+//   Switch,
+// } from "react-router-dom";
 
 import { Link } from "react-router-dom";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import PELUQUERO from "./PELUQUERO.png";
-import COMIDA from "./COMIDA.png";
-import personaje from "./personaje.png";
-import MALETA from "./MALETA.png";
-import LUPA from "./LUPA.png";
-import CALENDARIO from "./CALENDARIO.png";
-import pregunta from "./pregunta.png";
+import { Button } from "reactstrap";
+import PELUQUERO from "./image/PELUQUERO.png";
+import COMIDA from "./image/COMIDA.png";
+import personaje from "./image/personaje.png";
+import MALETA from "./image/MALETA.png";
+import LUPA from "./image/LUPA.png";
+import CALENDARIO from "./image/CALENDARIO.png";
+import pregunta from "./image/pregunta.png";
 import axios from "axios";
 const configuracion = {
   url: "http://54.162.46.22:3000/turnos/gol",
@@ -41,10 +41,17 @@ function turnos() {
   const negocios = [
     { name: "peluqueria1", id: 1, img: PELUQUERO },
     { name: "restaurante2", id: 2, img: COMIDA },
+    { name: "restaurante3", id: 3, img: COMIDA },
+    { name: "restaurante4", id: 4, img: COMIDA },
+    { name: "restaurante5", id: 5, img: COMIDA },
+    { name: "restaurante6", id: 6, img: COMIDA },
+    { name: "restaurante7", id: 7, img: COMIDA },
+    { name: "restaurante8", id: 8, img: COMIDA },
+    
   ];
   console.log(negocios);
   return (
-    <div className="contenedorgigante">
+    <div className="contenedorgigante2">
       <div className="header"></div>
       <div className="cajagorda"></div>
       <div className="lacajadelosturnos">
@@ -65,7 +72,7 @@ function turnos() {
         </div>
       </div>
       <div className="formcontainer"></div>
-      <div className="cajadeabajo">
+      <div className="cajadeabajo2">
       <Link to={"cliente"}>
         <img src={personaje} className="personaje"></img>
         </Link>

@@ -1,20 +1,20 @@
 import React from 'react';
-import axios from "axios";
-import './App.css'; 
+// import axios from "axios";
+import './css/App.css'; 
 import { Button } from 'reactstrap';
 import { Link } from "react-router-dom";
 function cliente(){
-    const configuracion = {
-        url: "http://54.162.46.22:3000/",
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        data: {
+    // const configuracion = {
+    //     url: "http://54.162.46.22:3000/",
+    //     method: "POST",
+    //     headers: {
+    //       Accept: "application/json",
+    //       "Content-Type": "application/json",
+    //     },
+    //     data: {
      
-        },
-      };
+    //     },
+    //   };
     
     return(
         <div className="contenedorgigante">
