@@ -7,6 +7,13 @@ import React from "react";
 import "./css/App.css";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
+import personaje from "./image/personaje.png";
+import MALETA from "./image/MALETA.png";
+import LUPA from "./image/LUPA.png";
+import CALENDARIO from "./image/CALENDARIO.png";
+import pregunta from "./image/pregunta.png";
+
+
 function turno() {
   // const configuracion = {
   //     url: "http://34.199.96.91:4000/",
@@ -44,6 +51,23 @@ function turno() {
       <Link to={"/"}>
         <Button className="anterior">Clientes anteriores</Button>
       </Link>
+
+      <div className="cajadeabajo">
+        <Link to={"cliente"}>
+          <img src={personaje} className="personaje"></img>
+        </Link>
+        <Link to={"turno"}>
+          <img src={MALETA} className="MALETA"></img>
+        </Link>
+        <img src={LUPA} className="lupa"></img>
+        <Link to={"cal"}>
+          <img src={CALENDARIO} className="calendario"></img>
+        </Link>
+
+        <Link to={"perfil"}>
+          <img src={pregunta} className="pregunta"></img>
+        </Link>
+      </div>
     </div>
   );
 }

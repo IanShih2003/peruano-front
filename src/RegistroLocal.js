@@ -9,8 +9,11 @@ import "./css/App.css";
 //   useHistory,
 // } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function RegistroLocal() {
+  const history = useHistory();
+
   const [nombre, setNombre] = useState("");
   const [dir, setDir] = useState("");
   const [correo, setCor] = useState("");
@@ -108,7 +111,9 @@ export default function RegistroLocal() {
         local: true,
       })
       .then((response) => {
-        // history.push("/turnos");
+        localStorage.setItem("local", response.data.local)
+        localStorage.setItem("token", response.data.token)
+        history.push("/principal");
       })
       .catch((error) => {
         if (error.response.status === 400) {

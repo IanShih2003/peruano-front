@@ -3,15 +3,16 @@ import "./css/App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import registrarse from "./registrarse";
 import inicio from "./inicio";
-import turnos from "./turnos";
-import cal from "./cal";
-import cliente from "./cliente";
+import TurnosNeg from "./TurnosNeg";
 import perfil from "./perfil";
 import turno from "./turno";
 import RegistroLocal from "./RegistroLocal";
 import RegistroCliente from "./RegistroCliente";
 
 import Login from "./login";
+import SacarTurno from "./SacarTurno";
+import TurnosCli from "./TurnosCli"
+import Principal from "./Principal";
 
 function App() {
   return (
@@ -21,11 +22,13 @@ function App() {
       <Route path="/registroLocal" exact component={RegistroLocal} />
       <Route path="/registroCliente" exact component={RegistroCliente} />
       <Route path="/" exact component={inicio} />
-      <Route path="/turnos" exact component={turnos} />
-      <Route path="/cal" exact component={cal} />
-      <Route path="/cliente" exact component={cliente} />
+      <Route path="/principal" exact component={Principal} />
+      <Route path="/turnoscli" exact component={TurnosCli} />
+      <Route path="/turnosneg" exact component={TurnosNeg} />
       <Route path="/perfil" exact component={perfil} />
       <Route path="/turno" exact component={turno} />
+      <Route path="/sacarturno" exact component={SacarTurno} />
+
     </Router>
   );
 }

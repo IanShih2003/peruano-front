@@ -51,7 +51,9 @@ export default function RegistroLocal() {
         local: false,
       })
       .then((response) => {
-        history.push("/turnos");
+        localStorage.setItem("local", response.data.local)
+        localStorage.setItem("token", response.data.token)
+        history.push("/principal");
       })
       .catch((error) => {
         if (error.response.status === 400) {

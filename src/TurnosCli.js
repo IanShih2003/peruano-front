@@ -3,16 +3,7 @@ import React from "react";
 import "./css/App.css";
 import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
-function cal() {
-  // const configuracion = {
-  //   url: "http://54.162.46.22:3000/",
-  //   method: "POST",
-  //   headers: {
-  //     Accept: "application/json",
-  //     "Content-Type": "application/json",
-  //   },
-  //   data: {},
-  // };
+export default function TurnosCli() {
 
   return (
     <div className="contenedorgigante">
@@ -62,4 +53,3 @@ function cal() {
     </div>
   );
 }
-export default cal;

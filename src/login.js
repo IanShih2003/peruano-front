@@ -37,8 +37,9 @@ function Login() {
         password: password,
       })
       .then((response) => {
-        localStorage.setItem("token", response.data)
-        history.push("/turnos");
+        localStorage.setItem("local", response.data.local)
+        localStorage.setItem("token", response.data.token)
+        history.push("/principal");
       })
       .catch((error) => {
         if (error.response.status === 400) {
