@@ -1,15 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "./css/App.css";
 import "./css/style.css";
-import {
-  NavLink,
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from "react-router-dom";
-import { Link } from "react-router-dom";
-import Alert from "reactstrap/lib/Alert";
 import { useHistory, useLocation } from "react-router-dom";
 
 function isNumeric(str) {

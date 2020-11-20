@@ -8,7 +8,6 @@ import "./css/App.css";
 //   Switch,
 //   useHistory,
 // } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 export default function RegistroLocal() {
@@ -30,7 +29,7 @@ export default function RegistroLocal() {
   const [minApLun, setMinApLun] = useState("");
   const [horaCiLun, setHoraCiLun] = useState("");
   const [minCiLun, setMinCiLun] = useState("");
-  
+
   //Martes Apertura Cierre
   const [horaApMar, setHoraApMar] = useState("");
   const [minApMar, setMinApMar] = useState("");
@@ -72,34 +71,38 @@ export default function RegistroLocal() {
   const handlePass = handlerFunc(setPass);
   // const handleHorarios = handlerFunc(setHor)
 
-  function hour(h, m){
-    return h + ":" + m
+  function hour(h, m) {
+    return h + ":" + m;
   }
 
   const Registrousuario = async () => {
     console.log("hola");
-    var horariosJson = {}
+    var horariosJson = {};
     horariosJson.domingo = [
-      hour(horaApDom, minApDom), hour(horaCiDom, minCiDom)
-    ]
-    horariosJson.lunes = [
-      hour(horaApLun, minApLun), hour(horaCiLun, minCiLun)
-    ]
+      hour(horaApDom, minApDom),
+      hour(horaCiDom, minCiDom),
+    ];
+    horariosJson.lunes = [hour(horaApLun, minApLun), hour(horaCiLun, minCiLun)];
     horariosJson.martes = [
-      hour(horaApMar, minApMar), hour(horaCiMar, minCiMar)
-    ]
+      hour(horaApMar, minApMar),
+      hour(horaCiMar, minCiMar),
+    ];
     horariosJson.miercoles = [
-      hour(horaApMie, minApMie), hour(horaCiMie, minCiMie)
-    ]
+      hour(horaApMie, minApMie),
+      hour(horaCiMie, minCiMie),
+    ];
     horariosJson.jueves = [
-      hour(horaApJue, minApJue), hour(horaCiJue, minCiJue)
-    ]
+      hour(horaApJue, minApJue),
+      hour(horaCiJue, minCiJue),
+    ];
     horariosJson.viernes = [
-      hour(horaApVie, minApVie), hour(horaCiVie, minCiVie)
-    ]
+      hour(horaApVie, minApVie),
+      hour(horaCiVie, minCiVie),
+    ];
     horariosJson.sabado = [
-      hour(horaApSab, minApSab), hour(horaCiSab, minCiSab)
-    ]
+      hour(horaApSab, minApSab),
+      hour(horaCiSab, minCiSab),
+    ];
     axios
       .post("http://3.81.213.175:3000/api/register", {
         nombre: nombre,
@@ -111,8 +114,8 @@ export default function RegistroLocal() {
         local: true,
       })
       .then((response) => {
-        localStorage.setItem("local", response.data.local)
-        localStorage.setItem("token", response.data.token)
+        localStorage.setItem("local", response.data.local);
+        localStorage.setItem("token", response.data.token);
         history.push("/principal");
       })
       .catch((error) => {
@@ -120,7 +123,7 @@ export default function RegistroLocal() {
           alert(error.response.data);
         }
       });
-  };  
+  };
 
   return (
     <div className="contenedorgigante">
@@ -453,11 +456,9 @@ export default function RegistroLocal() {
             </div>
 
             <div className="xdrow2">
-              <Link to={"/turnos"}>
-                <button className="btnlogin" onClick={Registrousuario}>
-                  Ingresar
-                </button>
-              </Link>
+              <button className="btnlogin" onClick={Registrousuario}>
+                Ingresar
+              </button>
             </div>
           </div>
         </div>

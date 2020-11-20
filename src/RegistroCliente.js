@@ -2,14 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./css/App.css";
 import "./css/style.css"
-import {
-  NavLink,
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from "react-router-dom";
-import { Link } from "react-router-dom";
-import Alert from "reactstrap/lib/Alert";
 import { useHistory } from "react-router-dom";
 
 export default function RegistroLocal() {

@@ -2,7 +2,7 @@ import React from "react";
 import "./css/App.css";
 import "./css/style.css"
 // import { Link } from "react-router-dom";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Button } from "reactstrap";
 // import { FacebookLoginButton } from "react-social-login-buttons";
 import Imagentelefono from "./image/Imagentelefono.png";
 import DIBUJO2 from "./image/DIBUJO2.png";

@@ -7,13 +7,9 @@ import "./css/App.css";
 //   Switch,
 // } from "react-router-dom";
 
-import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
-import PELUQUERO from "./image/PELUQUERO.png";
-import COMIDA from "./image/COMIDA.png";
 import personaje from "./image/personaje.png";
 import MALETA from "./image/MALETA.png";
-import LUPA from "./image/LUPA.png";
 import CALENDARIO from "./image/CALENDARIO.png";
 import pregunta from "./image/pregunta.png";
 import axios from "axios";
@@ -22,6 +18,7 @@ import { useHistory } from "react-router-dom";
 export default function Principal() {
   const history = useHistory();
   const [negocios, setNegocios] = useState([]);
+  var boton = null
 
   useEffect(() => {
     axios
@@ -49,9 +46,6 @@ export default function Principal() {
     history.push("/perfil");
   }
 
-  function clientLink() {
-    history.push("/cliente");
-  }
   function calendarLink() {
     if (localStorage.getItem("local") === "false") {
       history.push("/TurnosCli");
@@ -59,8 +53,25 @@ export default function Principal() {
       history.push("/TurnosNeg");
     }
   }
-  function turnoLink() {
-    history.push("/turno");
+
+  // function historialLink(){
+  //   if (localStorage.getItem("local") === "false") {
+  //     history.push("/historialCli");
+  //   } else {
+  //     history.push("/historialNeg");
+  //   }
+  // }
+
+  function pendingLink(){
+    history.push("/pendingTurn")
+  }
+
+  if (localStorage.getItem("local") === "true") {
+    boton = (
+      <Button onClick={() => pendingLink()}>
+        <img src={pregunta} className="pregunta"></img>
+      </Button>
+    );
   }
 
   return (
@@ -99,8 +110,8 @@ export default function Principal() {
         <Button>
           <img src={pregunta} className="pregunta"></img>
         </Button>
+        {boton}
       </div>
     </div>
   );
 }
-

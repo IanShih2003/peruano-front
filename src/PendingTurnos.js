@@ -5,13 +5,14 @@ import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-export default function TurnosCli() {
+export default function PendingTurnos() {
   const [turnos, setTurnos] = useState([]);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
       .post(
-        "http://3.81.213.175:3000/api/getAppoinments",
+        "http://3.81.213.175:3000/api/getAppoinments/pending",
         {},
         {
           headers: {
@@ -46,26 +47,25 @@ export default function TurnosCli() {
   return (
     <div className="contenedorgigante">
       <div className="header"></div>
-      <div className="cajaja"></div>
-      <label className="tusproximosclientes"> Tus proximos turnos son:</label>
-      <div className="contenedor-negocios">
+      <div className="cajaja">
+        <label className="tusproximosclientes">
+          {" "}
+          Tus proximos clientes son:
+        </label>
+        <div className="quesardo"></div>
         {turnos.map((turno) => (
-          <div key={turno._id} className="client1">
-            <div className="lacajadelpayaso" />
-            <div>{convertDate(turno.date).date}</div>
-            <div>{convertDate(turno.date).hour}</div>
-            <div>{turno.nombre}</div>
-            <div>{turno.correo}</div>
-            <div>{turno.direccion}</div>
-            <div>{turno.celular}</div>
-            <div>{turno.status}</div>
+          <div key={turno._id} className="cliente1">
+            <div className="cheddar">{convertDate(turno.date).date}</div>
+            <div className="cheddar">{convertDate(turno.date).hour}</div>
+            <div className="cheddar">{turno.nombre}</div>
+            <div className="cheddar">{turno.apellido}</div>
+            <div className="cheddar">{turno.status}</div>
           </div>
         ))}
+        <Link to={"/"}>
+          <Button className="anterior">Clientes anteriores</Button>
+        </Link>
       </div>
-
-      <Link to={"/"}>
-        <Button className="anterior">Turnos Anteriores</Button>
-      </Link>
     </div>
   );
 }

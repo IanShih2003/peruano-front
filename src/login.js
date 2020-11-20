@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./css/App.css";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Button, Form, FormGroup, Input } from "reactstrap";
 // import { FacebookLoginButton } from "react-social-login-buttons";
 import usuario from "./image/usuario.png";

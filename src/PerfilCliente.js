@@ -1,9 +1,9 @@
 import React from "react";
 // import axios from "axios";
 import "./css/App.css";
-import { Button, Input } from "reactstrap";
+import { Input } from "reactstrap";
 
-function perfil() {
+export default function PerfilCliente() {
   return (
     <div className="contenedorgigante">
       <div className="header"></div>
@@ -13,9 +13,7 @@ function perfil() {
         <div className="n2">Apellido:</div>
         <Input className="tb2"></Input>
         <div className="n3">Email:</div>
-        <Input className="tb3"></Input>
-        <div className="n4">Telefono:</div>
-        <Input className="tb4"></Input>
+        <Input className="tb3"></Input> 
         <div className="n5">Contraseña:</div>
         <Input className="tb5"></Input>
         <div className="textolargo">
@@ -29,4 +27,3 @@ function perfil() {
     </div>
   );
 }
-export default perfil;
