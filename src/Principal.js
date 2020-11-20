@@ -18,7 +18,7 @@ import { useHistory } from "react-router-dom";
 export default function Principal() {
   const history = useHistory();
   const [negocios, setNegocios] = useState([]);
-  var boton = null
+  var boton = null;
 
   useEffect(() => {
     axios
@@ -43,7 +43,11 @@ export default function Principal() {
   }
 
   function perfilLink() {
-    history.push("/perfil");
+    if (localStorage.getItem("local") === "false") {
+      history.push("/perfilCli");
+    } else {
+      history.push("/perfilLocal");
+    }
   }
 
   function calendarLink() {
@@ -54,16 +58,16 @@ export default function Principal() {
     }
   }
 
-  // function historialLink(){
-  //   if (localStorage.getItem("local") === "false") {
-  //     history.push("/historialCli");
-  //   } else {
-  //     history.push("/historialNeg");
-  //   }
-  // }
+  function historialLink() {
+    if (localStorage.getItem("local") === "false") {
+      history.push("/historialCli");
+    } else {
+      history.push("/historialNeg");
+    }
+  }
 
-  function pendingLink(){
-    history.push("/pendingTurn")
+  function pendingLink() {
+    history.push("/pendingTurn");
   }
 
   if (localStorage.getItem("local") === "true") {
@@ -96,21 +100,23 @@ export default function Principal() {
       </div>
 
       <div className="cajadeabajo2">
-        <Button onClick={perfilLink}>
-          <img src={personaje} className="personaje"></img>
-        </Button>
-        <Button>
-          <img src={MALETA} className="MALETA"></img>
-        </Button>
+        <div className="cajadeabajo3">
+          <Button onClick={perfilLink}>
+            <img src={personaje} className="personaje"></img>
+          </Button>
+          <Button onClick={historialLink}>
+            <img src={MALETA} className="MALETA"></img>
+          </Button>
 
-        <Button onClick={calendarLink}>
-          <img src={CALENDARIO} className="calendario"></img>
-        </Button>
+          <Button onClick={calendarLink}>
+            <img src={CALENDARIO} className="calendario"></img>
+          </Button>
 
-        <Button>
-          <img src={pregunta} className="pregunta"></img>
-        </Button>
-        {boton}
+          <Button>
+            <img src={pregunta} className="pregunta"></img>
+          </Button>
+          {boton}
+        </div>
       </div>
     </div>
   );

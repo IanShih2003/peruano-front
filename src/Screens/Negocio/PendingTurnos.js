@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 // import axios from "axios";
-import "./css/App.css";
+import "../../css/App.css";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-export default function HistorialNeg() {
+export default function PendingTurnos() {
   const [turnos, setTurnos] = useState([]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
       .post(
-        "http://3.81.213.175:3000/api/getAppoinments",
+        "http://3.81.213.175:3000/api/getAppoinments/pending",
         {},
         {
           headers: {
@@ -32,6 +32,26 @@ export default function HistorialNeg() {
       });
   }, []);
 
+  function changeState(id){
+    axios
+      .post(
+        "http://3.81.213.175:3000/api/updateAppoinment",
+        {
+          idTurno: id,
+          newStatus: "confirmed"
+        }        
+      )
+      .then((response) => {
+        if(response.data = "appointment updated successfully"){
+          window.location.reload()
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Ocurrio un error")
+      });
+  }
+
   function convertDate(d) {
     var resultado = {};
     var arr = d.split("T");
@@ -44,28 +64,13 @@ export default function HistorialNeg() {
     return resultado;
   }
 
-  var negocios = [
-    {
-      _id: 1,
-      nombre: "Santiago",
-    },
-    {
-      _id: 2,
-      nombre: "Santiago",
-    },
-    {
-      _id: 3,
-      nombre: "Santiago",
-    },
-  ];
-
   return (
     <div className="contenedorgigante">
       <div className="header"></div>
       <div className="cajaja">
         <label className="tusproximosclientes">
           {" "}
-          Tus proximos clientes son:
+          Turnos pendientes:
         </label>
         <div className="quesardo"></div>
         {turnos.map((turno) => (
@@ -75,10 +80,13 @@ export default function HistorialNeg() {
             <div className="cheddar">{turno.nombre}</div>
             <div className="cheddar">{turno.apellido}</div>
             <div className="cheddar">{turno.status}</div>
+            <Button className="provologne" onClick={() => {changeState(turno._id)}}>
+              Aceptar
+            </Button>
           </div>
         ))}
-        <Link to={"/"}>
-          <Button className="anterior">Clientes anteriores</Button>
+        <Link to={"/principal"}>
+          <Button className="anterior">Volver a pantalla principal</Button>
         </Link>
       </div>
     </div>

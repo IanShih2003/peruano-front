@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./css/App.css";
-import "./css/style.css";
+import "../../css/App.css";
 import { useHistory, useLocation } from "react-router-dom";
 
 function isNumeric(str) {

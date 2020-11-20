@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 // import axios from "axios";
-import "./css/App.css";
+import "../../css/App.css";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-export default function TurnosNeg() {
+export default function HistorialCli() {
   const [turnos, setTurnos] = useState([]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
       .post(
-        "http://3.81.213.175:3000/api/getAppoinments",
+        "http://3.81.213.175:3000/api/getAppoinments/old",
         {},
         {
           headers: {
@@ -44,20 +44,24 @@ export default function TurnosNeg() {
     return resultado;
   }
 
-  var negocios = [
-    {
-      _id: 1,
-      nombre: "Santiago",
-    },
-    {
-      _id: 2,
-      nombre: "Santiago",
-    },
-    {
-      _id: 3,
-      nombre: "Santiago",
-    },
-  ];
+  function deleteTurno(id){
+    axios
+      .post(
+        "http://3.81.213.175:3000/api/deleteAppointment",
+        {
+          idTurno: id
+        }        
+      )
+      .then((response) => {
+        if(response.data = "appointment deleted successfully"){
+          window.location.reload()
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Ocurrio un error")
+      });
+  }
 
   return (
     <div className="contenedorgigante">
@@ -65,7 +69,7 @@ export default function TurnosNeg() {
       <div className="cajaja">
         <label className="tusproximosclientes">
           {" "}
-          Tus proximos clientes son:
+          Tus turnos pasados:
         </label>
         <div className="quesardo"></div>
         {turnos.map((turno) => (
@@ -75,10 +79,11 @@ export default function TurnosNeg() {
             <div className="cheddar">{turno.nombre}</div>
             <div className="cheddar">{turno.apellido}</div>
             <div className="cheddar">{turno.status}</div>
+            <Button className="provologne" onClick={() =>{deleteTurno(turno._id)}}>Eliminar</Button>
           </div>
         ))}
-        <Link to={"/"}>
-          <Button className="anterior">Clientes anteriores</Button>
+        <Link to={"/principal"}>
+          <Button className="anterior">Volver a pantalla principal</Button>
         </Link>
       </div>
     </div>

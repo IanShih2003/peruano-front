@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 // import axios from "axios";
-import "./css/App.css";
+import "../../css/App.css";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-export default function PendingTurnos() {
+export default function TurnosCli() {
   const [turnos, setTurnos] = useState([]);
-
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
       .post(
-        "http://3.81.213.175:3000/api/getAppoinments/pending",
+        "http://3.81.213.175:3000/api/getAppoinments/confirmed",
         {},
         {
           headers: {
@@ -50,7 +49,7 @@ export default function PendingTurnos() {
       <div className="cajaja">
         <label className="tusproximosclientes">
           {" "}
-          Tus proximos clientes son:
+          Tus proximos turnos son:
         </label>
         <div className="quesardo"></div>
         {turnos.map((turno) => (
@@ -62,8 +61,8 @@ export default function PendingTurnos() {
             <div className="cheddar">{turno.status}</div>
           </div>
         ))}
-        <Link to={"/"}>
-          <Button className="anterior">Clientes anteriores</Button>
+        <Link to={"/principal"}>
+          <Button className="anterior">Volver a pantalla principal</Button>
         </Link>
       </div>
     </div>

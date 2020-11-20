@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./css/App.css";
-import "./css/style.css"
+import "../../css/App.css";
+import "../../css/style.css"
 import { useHistory } from "react-router-dom";
 
 export default function RegistroLocal() {

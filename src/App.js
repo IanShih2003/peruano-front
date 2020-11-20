@@ -3,20 +3,20 @@ import "./css/App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import registrarse from "./registrarse";
 import inicio from "./inicio";
-import TurnosNeg from "./TurnosNeg";
+import TurnosNeg from "./Screens/Negocio/TurnosNeg";
 import turno from "./turno";
-import RegistroLocal from "./RegistroLocal";
-import RegistroCliente from "./RegistroCliente";
+import RegistroLocal from "./Screens/Negocio/RegistroLocal";
+import RegistroCliente from "./Screens/Cliente/RegistroCliente";
 
 import Login from "./login";
-import SacarTurno from "./SacarTurno";
-import TurnosCli from "./TurnosCli";
+import SacarTurno from "./Screens/Cliente/SacarTurno";
+import TurnosCli from "./Screens/Cliente/TurnosCli";
 import Principal from "./Principal";
-import PerfilLocal from "./PerfilLocal";
-import PerfilCliente from "./PerfilCliente";
-import HistorialNeg from "./HistorialNeg";
-import HistorialCli from "./HistorialCli";
-import PendingTurnos from "./PendingTurnos"
+import PerfilLocal from "./Screens/Negocio/PerfilLocal";
+import PerfilCliente from "./Screens/Cliente/PerfilCliente";
+import HistorialNeg from "./Screens/Negocio/HistorialNeg";
+import HistorialCli from "./Screens/Cliente/HistorialCli";
+import PendingTurnos from "./Screens/Negocio/PendingTurnos"
 
 function App() {
   return (
@@ -37,7 +37,7 @@ function App() {
       <Route path="/historialCli" exact component={HistorialCli} />
       <Route path="/pendingTurn" exact component={PendingTurnos} />
     </Router>
-  );
+  );  
 }
 
 export default App;
