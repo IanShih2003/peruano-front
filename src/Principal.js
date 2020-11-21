@@ -14,6 +14,7 @@ import CALENDARIO from "./image/CALENDARIO.png";
 import pregunta from "./image/pregunta.png";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import creditos from "./creditos";
 
 export default function Principal() {
   const history = useHistory();
@@ -70,6 +71,10 @@ export default function Principal() {
     history.push("/pendingTurn");
   }
 
+  function creditosLink() {
+    history.push("/creditos");
+  }
+
   if (localStorage.getItem("local") === "true") {
     boton = (
       <Button onClick={() => pendingLink()}>
@@ -86,14 +91,17 @@ export default function Principal() {
         <div className="contenedor-negocios">
           {negocios.map((negocio) => (
             <div key={negocio._id} className="cajaverde">
-              <div className="pastrami">{negocio.nombre}</div>
-              <Button
-                onClick={() => sacoturno(negocio._id)}
-                className="botonsacar1"
-              >
-                {" "}
-                Sacar turno
-              </Button>
+              <div className="americancheese">
+                <div className="pastrami">{negocio.nombre}</div>
+                <img src={negocio.foto} className="patagonzola"></img>
+                <Button
+                  onClick={() => sacoturno(negocio._id)}
+                  className="botonsacar1"
+                >
+                  {" "}
+                  Sacar turno
+                </Button>
+              </div>
             </div>
           ))}
         </div>
@@ -112,7 +120,7 @@ export default function Principal() {
             <img src={CALENDARIO} className="calendario"></img>
           </Button>
 
-          <Button>
+          <Button onClick={creditosLink}>
             <img src={pregunta} className="pregunta"></img>
           </Button>
           {boton}

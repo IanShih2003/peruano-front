@@ -216,7 +216,7 @@ body {
 }
 .cajitafeliz2 {
   width: 600px;
-  height: 695px;
+  height: 800px;
   background: #ffffff;
   text-align: center;
   justify-content: center;
@@ -343,6 +343,12 @@ body {
   border-radius: 25px 0px 25px 25px;
   padding-top: 1%;
 }
+
+.americancheese{
+  margin: 0 auto;
+  width: 50%;
+}
+
 .cajaverde2 {
   width: 650px;
   height: 390px;
@@ -613,6 +619,11 @@ text-align: center;
   width:50%;
   margin: 0, auto;
 }
+
+.patagonzola{
+  height: 275px;
+}
+
 .lacuartacaja {
   width: 1400px;
   height: 600px;
@@ -1108,6 +1119,10 @@ text-align: center;
   text-align: center;
   color: #000000;
   margin-top: 20px;
+}
+
+.reggianito{
+  margin-top: 10px;
 }
 
 .quesardo {

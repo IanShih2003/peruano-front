@@ -60,6 +60,30 @@ export default function RegistroLocal() {
   const [horaCiSab, setHoraCiSab] = useState("");
   const [minCiSab, setMinCiSab] = useState("");
 
+  const [baseImage, setBaseImage] = useState("");
+
+  const uploadImage = async (e) => {
+    const file = e.target.files[0];
+    const base64 = await convertBase64(file);
+    setBaseImage(base64);
+    console.log(baseImage);
+  };
+
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+
   const handlerFunc = (func) => {
     return ({ target }) => func(target.value);
   };
@@ -111,6 +135,7 @@ export default function RegistroLocal() {
         celular: cel,
         password: pass,
         horarios: horariosJson,
+        foto: baseImage,
         local: true,
       })
       .then((response) => {
@@ -454,6 +479,14 @@ export default function RegistroLocal() {
                 </tr>
               </table>
             </div>
+
+            <input
+              className="reggianito"
+              type="file"
+              onChange={(e) => {
+                uploadImage(e);
+              }}
+            />
 
             <div className="xdrow2">
               <button className="btnlogin" onClick={Registrousuario}>

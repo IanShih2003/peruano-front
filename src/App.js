@@ -17,6 +17,7 @@ import PerfilCliente from "./Screens/Cliente/PerfilCliente";
 import HistorialNeg from "./Screens/Negocio/HistorialNeg";
 import HistorialCli from "./Screens/Cliente/HistorialCli";
 import PendingTurnos from "./Screens/Negocio/PendingTurnos"
+import creditos from "./creditos"
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
       <Route path="/historialNeg" exact component={HistorialNeg} />
       <Route path="/historialCli" exact component={HistorialCli} />
       <Route path="/pendingTurn" exact component={PendingTurnos} />
+      <Route path="/creditos" exact component={creditos} />
     </Router>
   );  
 }
